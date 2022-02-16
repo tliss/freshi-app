@@ -1,0 +1,16 @@
+alembic==1.7.6
+click==8.0.3
+colorama==0.4.4
+Flask==2.0.3
+Flask-Migrate==3.1.0
+Flask-Script==2.0.6
+Flask-SQLAlchemy==2.5.1
+greenlet==1.1.2
+gunicorn==20.1.0
+itsdangerous==2.0.1
+Jinja2==3.0.3
+Mako==1.1.6
+MarkupSafe==2.0.1
+psycopg2-binary==2.9.3
+SQLAlchemy==1.4.31
+Werkzeug==2.0.3
