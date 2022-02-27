@@ -1,0 +1,4 @@
+include freshi/schema.sql
+graft freshi/static
+graft freshi/templates
+global-exclude *.pyc
