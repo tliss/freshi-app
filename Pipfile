@@ -4,6 +4,17 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+click = "*"
+colorama = "*"
+Flask = "*"
+itsdangerous = "*"
+Jinja2 = "*"
+MarkupSafe = "*"
+Werkzeug = "*"
+wheel = "*"
+flask-sqlalchemy = "*"
+sqlalchemy-utils = "*"
+psycopg2 = "*"
 
 [dev-packages]
 
