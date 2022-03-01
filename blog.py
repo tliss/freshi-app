@@ -10,12 +10,15 @@ bp = Blueprint('blog', __name__)
 
 @bp.route('/')
 def index():
-    try:
-        posts=Post.query.filter_by(author_id=g.user.id)
-    except Exception as e:
-        return(str(e))
+    if g.user:
+        try:
+            posts=Post.query.filter_by(author_id=g.user.id)
+        except Exception as e:
+            return(str(e))
 
-    return render_template('blog/index.html', posts=posts)
+        return render_template('blog/index.html', posts=posts)
+    else:
+        return render_template('auth/login.html')
 
 def get_post(id, check_author=True):
     post=Post.query.filter_by(author_id=g.user.id).first()

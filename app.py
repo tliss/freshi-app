@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 import os
 import models
 
@@ -36,16 +36,10 @@ def create_app(test_config=None):
     # except OSError:
     #     pass
 
-    # # a simple page that says hello
-    @app.route('/hello')
-    def hello():
-        return 'Hello, World!'
-
     import auth
     app.register_blueprint(auth.bp)
 
     import blog
     app.register_blueprint(blog.bp)
-    app.add_url_rule('/', endpoint='index')
 
     return app
