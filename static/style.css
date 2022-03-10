@@ -1,23 +1,43 @@
 html {
   font-family: sans-serif;
-  background: #eee;
+  /* background: #eee; */
   padding: 1rem;
+  background-image: url('https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fmedia.istockphoto.com%2Fphotos%2Fkitchen-fresh-colorful-organic-vegetables-on-worktop-picture-id1131005373%3Fb%3D1%26k%3D20%26m%3D1131005373%26s%3D170667a%26w%3D0%26h%3DgeB8_RdcRyteOQ4keRtmMfAKgo0a2bx_-aOlmEKHpvM%3D');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  margin-top: 12%;
+
 }
 
 body {
-  max-width: 960px;
+  /* max-width: 960px;
+  max-height: max-content;
   margin: 0 auto;
-  background: white;
+  background: rgb(255, 255, 255); */
+  max-width: 500px;
+  margin-left: 475px;
+  font-family: "Segoe UI";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+    
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: serif;
-  color: #377ba8;
-  margin: 1rem 0;
+  font-family: "Playfair Display";
+  color: #3c9c97;
+  /* margin: 1.5rem 1; */
+  padding-left: 2px;
+  background-color: white;
 }
 
 a {
-  color: #377ba8;
+  color: #3c9c97;
 }
 
 hr {
@@ -26,7 +46,7 @@ hr {
 }
 
 nav {
-  background: lightgray;
+  background: rgb(255, 255, 255);
   display: flex;
   align-items: center;
   padding: 0 0.5rem;
@@ -56,10 +76,11 @@ nav ul li a, nav ul li span, header .action {
 
 .content {
   padding: 0 1rem 1rem;
+
 }
 
 .content > header {
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid #3c9c97ed;
   display: flex;
   align-items: flex-end;
 }
@@ -108,15 +129,19 @@ nav ul li a, nav ul li span, header .action {
   margin: 1em 0;
   display: flex;
   flex-direction: column;
+  font-family: 'Segoe UI';
+  color: #3c9c97;
 }
 
 .content label {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: bold;
   margin-bottom: 0.5em;
 }
 
 .content input, .content textarea {
   margin-bottom: 1em;
+  border-color: lightgray;
 }
 
 .content textarea {
@@ -131,4 +156,6 @@ input.danger {
 input[type=submit] {
   align-self: start;
   min-width: 10em;
+  color: #3c9c97;
+  background-color: #fff;
 }
