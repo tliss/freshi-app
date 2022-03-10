@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}New Post{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="name">Food Name</label>
+    <input name="name" id="name" value="{{ request.form['name'] }}" required>
+    <label for="exp">Expiration Date</label>
+    <input type="date" name="exp" id="exp" value="{{ request.form['exp'] }}">
+    <input type="submit" value="Save">
+  </form>
+{% endblock %}

@@ -17,7 +17,7 @@ def create_app(test_config=None):
 
     models.db.init_app(app)
 
-    from models import User, Post
+    from models import User, Food
 
     with app.app_context():
         models.db.drop_all()
@@ -39,7 +39,7 @@ def create_app(test_config=None):
     import auth
     app.register_blueprint(auth.bp)
 
-    import blog
-    app.register_blueprint(blog.bp)
+    import food
+    app.register_blueprint(food.bp)
 
     return app

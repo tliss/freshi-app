@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Edit "{{ food['name'] }}"{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="name">Food Name</label>
+    <input name="name" id="name"
+      value="{{ request.form['name'] or food['name'] }}" required>
+    <label for="exp">Expiration Date</label>
+    <input type="date" name="exp" id="exp" value="{{ request.form['exp'] or food['exp'] }}">
+    <input type="submit" value="Save">
+  </form>
+  <hr>
+  <form action="{{ url_for('food.delete', id=food.id) }}" method="post">
+    <input class="danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
+  </form>
+{% endblock %}
