@@ -94,7 +94,3 @@ def reset():
         email = request.form['email']
 
     return render_template('auth/reset.html')
-
-@bp.route('/view', methods=('GET', 'POST'))
-def view():
-    return render_template('auth/view.html')

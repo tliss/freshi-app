@@ -1,15 +1,69 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}New Post{% endblock %}</h1>
-{% endblock %}
-
+  <h1>{% block title %}Food Log{% endblock %}</h1>
+  {% endblock %}
 {% block content %}
-  <form method="post">
-    <label for="name">Food Name</label>
-    <input name="name" id="name" value="{{ request.form['name'] }}" required>
-    <label for="exp">Expiration Date</label>
-    <input type="date" name="exp" id="exp" value="{{ request.form['exp'] }}">
-    <input type="submit" value="Save">
-  </form>
+    <table>
+        <form method="post">
+            <tr>
+                <td>
+                    <label for="name">Food Name</label>
+                    <input name="name" id="name" value="{{ request.form['name'] }}" required>   
+                </td>
+                <td>
+                    <label for="exp">Expiration Date</label>
+                    <input type="date" name="exp" id="exp" value="{{ request.form['exp'] }}">
+                </td>
+                <td>
+                    <label for="action">Action</label>
+                    <a href="#" class="btn btn-success a-btn-slide-text">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        <span><strong>Add</strong></span>            
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>Milk</td>
+                <td>03/19/22</td>
+                <td>
+                    <a href="#" class="btn btn-warning a-btn-slide-text">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                        <span><strong>Edit</strong></span>               
+                    </a>
+                </td>
+                <td>
+                    <a href="#" class="btn btn-danger a-btn-slide-text">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                         <span><strong>Delete</strong></span>            
+                     </a>
+                </td>
+            </tr>
+            <tr>
+                <td>Eggs</td>
+                <td>04/04/22</td>
+                <td>
+                    <a href="#" class="btn btn-warning a-btn-slide-text">
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                        <span><strong>Edit</strong></span>               
+                    </a>
+                </td>
+                <td>
+                    <a href="#" class="btn btn-danger a-btn-slide-text">
+                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                         <span><strong>Delete</strong></span>            
+                     </a>
+                </td>
+            </tr>
+            <tr>
+                <td>Yogurt</td>
+                <td>03/25/22</td>
+                <td>
+                    <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                    <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                    <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                </td>
+            </tr>
+          </form>
+    </table>
 {% endblock %}
