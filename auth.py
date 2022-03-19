@@ -14,18 +14,22 @@ def register():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
+        email = request.form['email']
         error = None
 
         if not username:
             error = 'Username is required.'
         elif not password:
             error = 'Password is required.'
+        elif not email:
+            error = 'Email is required.'
 
         if error is None:
             try:
                 user=User(
                     username,
-                    generate_password_hash(password)
+                    generate_password_hash(password),
+                    email
                 )
                 db.session.add(user)
                 db.session.commit()

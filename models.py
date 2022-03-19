@@ -10,19 +10,22 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(), nullable=False, unique=True)
     password = db.Column(db.String(), nullable=False)
+    email = db.Column(db.String(), unique=True, nullable=False)
 
-    def __init__(self, username, password):
+    def __init__(self, username, password, email):
         self.username = username
         self.password = password
+        self.email = email
 
-    # Returna printable value
+    # Return a printable value
     def __repr__(self):
         return '<id {}>'.format(self.id)
 
     def serialize(self):
         return {
             'id': self.id,
-            'name': self.username
+            'name': self.username,
+            'email': self.email
         }
 
 class Food(db.Model):
