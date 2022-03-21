@@ -13,7 +13,7 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       {% if g.user %}
-      <li class="nav-item"><span>{{ g.user.username }}</span>
+      <li class="nav-item"><a href="{{ url_for('auth.profile') }}" class="nav-link">{{ g.user.username }}</a>
       <li class="nav-item"><a href="{{ url_for('auth.logout') }}" class="nav-link">Log Out</a>
     {% else %}
     <li class="nav-item"><a href="{{ url_for('auth.register') }}" class="nav-link">Register</a>

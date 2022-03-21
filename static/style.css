@@ -152,3 +152,9 @@ input[type=submit] {
   align-self: start;
   min-width: 10em;
 }
+
+.card {
+  margin: auto;
+  text-align: left;
+  padding: 10%;
+}
