@@ -1,23 +1,21 @@
 <!doctype html>
 <title>{% block title %}{% endblock %} - Freshi</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Freshi</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<nav class="navbar navbar-inverse navbar-light bg-light">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Freshi</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
       {% if g.user %}
-      <li class="nav-item"><a href="{{ url_for('auth.profile') }}" class="nav-link">{{ g.user.username }}</a>
-      <li class="nav-item"><a href="{{ url_for('auth.logout') }}" class="nav-link">Log Out</a>
+      <li><a href="{{ url_for('auth.profile') }}"><span class="glyphicon glyphicon-user"></span> {{ g.user.username }}</a></li>
+      <li><a href="{{ url_for('auth.logout') }}"><span class="glyphicon glyphicon-log-in"></span>Log Out</a></li>
     {% else %}
-    <li class="nav-item"><a href="{{ url_for('auth.register') }}" class="nav-link">Register</a>
-    <li class="nav-item"><a href="{{ url_for('auth.login') }}" class="nav-link">Log In</a>
+    <li><a href="{{ url_for('auth.register') }}"><span class="glyphicon glyphicon-user"></span>Register</a></li>
+    <li><a href="{{ url_for('auth.login') }}"><span class="glyphicon glyphicon-log-in"></span>Log In</a></li>
   {% endif %}
     </ul>
   </div>

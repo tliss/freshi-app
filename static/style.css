@@ -42,7 +42,7 @@ hr {
 }
 
 nav {
-  background: rgb(177, 228, 161);
+  background: rgb(178, 231, 162);
   display: flex;
   align-items: center;
   padding: 0 0.5rem;
@@ -56,6 +56,7 @@ nav h1 {
 nav h1 a {
   text-decoration: none;
   padding: 0.25rem 0.5rem;
+  color: #3c9c3c;
 }
 
 nav ul  {
@@ -157,4 +158,27 @@ input[type=submit] {
   margin: auto;
   text-align: left;
   padding: 10%;
+  color: #3c9c3c;
+}
+
+.next{
+  float: right;
+  padding-top: 10%;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 5%;
+}
+
+.edit-center {
+  margin: auto;
+  width: 30%;
+  padding-top: 5%;
+}
+
+.profile {
+  border: 5px solid #555;
 }
