@@ -91,3 +91,14 @@ def login_required(view):
         return view(**kwargs)
 
     return wrapped_view
+
+@bp.route('/reset', methods=('GET', 'POST'))
+def reset():
+    if request.method == 'POST':
+        email = request.form['email']
+
+    return render_template('auth/reset.html')
+
+@bp.route('/profile', methods=('GET', 'POST'))
+def profile():
+    return render_template('auth/profile.html')

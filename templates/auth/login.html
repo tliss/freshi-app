@@ -10,6 +10,7 @@
     <input name="username" id="username" required>
     <label for="password">Password</label>
     <input type="password" name="password" id="password" required>
-    <input type="submit" value="Log In">
+    <a href="{{ url_for('auth.reset') }}" class="link-success">Forgot password?</a>
+    <input class="btn btn-success" type="submit" value="Login">
   </form>
 {% endblock %}

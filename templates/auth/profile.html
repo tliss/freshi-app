@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}User Profile{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<div class="card">
+    <img src="https://nationaltoday.com/wp-content/uploads/2019/09/world-coconut-day.jpg" alt="Orange" style="width:50%" class="center">
+    <h4>Username: {{ g.user.username }}</h4>
+    <h4>Email: {{ g.user.email }}</h4>
+    <h4>Freshi Goal: Consume all groceries within a week before expiration.</h4>
+    <div class="edit-center">
+      <a href="#" class="btn btn-warning a-btn-slide-text">
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        <span><strong>Edit</strong></span>               
+    </a>
+    </div>
+{% endblock %}
