@@ -6,38 +6,42 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link rel="icon" href="img/freshi.ico" type="image/x-icon">
 <html>
-  <head>
-    <body>
-      <div class="logo">
-        <img src="img/logo.jpg" width="40" height="40">
-      </div>
-    </body>
-   <meta charset="UTF-5">
-   <link rel="icon" href="img/freshi.ico" type="image/x-icon">
-  </head>
-</html>
-<nav class="navbar navbar-inverse navbar-light bg-light">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Freshi</a>
-    </div>
-    <ul class="nav navbar-nav navbar-right">
-      {% if g.user %}
-      <li><a href="{{ url_for('auth.profile') }}"><span class="glyphicon glyphicon-user"></span> {{ g.user.username }}</a></li>
-      <li><a href="{{ url_for('auth.logout') }}"><span class="glyphicon glyphicon-log-in"></span>Log Out</a></li>
-    {% else %}
-    <li><a href="{{ url_for('auth.register') }}"><span class="glyphicon glyphicon-user"></span>Register</a></li>
-    <li><a href="{{ url_for('auth.login') }}"><span class="glyphicon glyphicon-log-in"></span>Log In</a></li>
-  {% endif %}
-    </ul>
+
+<head>
+  <meta charset="UTF-5">
+  <link rel="icon" href="static/img/freshi.ico" type="image/x-icon">
+</head>
+
+<body>
+  <div class="logo">
+    <img src="static\img\logo.jpg" width="40" height="40">
   </div>
-</nav>
-<section class="content"> 
-  <header>
-    {% block header %}{% endblock %}
-  </header>
-  {% for message in get_flashed_messages() %}
+  <nav class="navbar navbar-inverse navbar-light bg-light">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Freshi</a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        {% if g.user %}
+        <li><a href="{{ url_for('auth.profile') }}"><span class="glyphicon glyphicon-user"></span> {{ g.user.username
+            }}</a></li>
+        <li><a href="{{ url_for('auth.logout') }}"><span class="glyphicon glyphicon-log-in"></span>Log Out</a></li>
+        {% else %}
+        <li><a href="{{ url_for('auth.register') }}"><span class="glyphicon glyphicon-user"></span>Register</a></li>
+        <li><a href="{{ url_for('auth.login') }}"><span class="glyphicon glyphicon-log-in"></span>Log In</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+  <section class="content">
+    <header>
+      {% block header %}{% endblock %}
+    </header>
+    {% for message in get_flashed_messages() %}
     <div class="flash">{{ message }}</div>
-  {% endfor %}
-  {% block content %}{% endblock %}
-</section>
+    {% endfor %}
+    {% block content %}{% endblock %}
+  </section>
+</body>
+
+</html>
