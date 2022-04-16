@@ -9,12 +9,12 @@
 
 <head>
   <meta charset="UTF-5">
-  <link rel="icon" href="static/img/freshi.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='img/freshi.ico') }}">
 </head>
 
 <body>
   <div class="logo">
-    <img src="static\img\logo.jpg" width="40" height="40">
+    <img src="{{url_for('static', filename='img/logo.jpg')}}" width="40" height="40">
   </div>
   <nav class="navbar navbar-inverse navbar-light bg-light">
     <div class="container-fluid">
