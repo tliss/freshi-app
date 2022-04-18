@@ -18,7 +18,7 @@ def index():
 
         return render_template('food/index.html', foods=foods)
     else:
-        return render_template('auth/login.html')
+        return render_template('home.html')
 
 def get_food(id, check_creator=True):
     food=Food.query.filter_by(creator_id=g.user.id).first()

@@ -102,3 +102,7 @@ def reset():
 @bp.route('/profile', methods=('GET', 'POST'))
 def profile():
     return render_template('auth/profile.html')
+
+@bp.route('/home', methods=('GET', 'POST'))
+def home():
+    return render_template('auth/home.html')
