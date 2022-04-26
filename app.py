@@ -20,7 +20,7 @@ def create_app(test_config=None):
     from models import User, Food
 
     with app.app_context():
-        models.db.drop_all()
+        # models.db.drop_all()
         models.db.create_all()
 
     # if test_config is None:

@@ -1,28 +1,40 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}Foods{% endblock %}</h1>
-  {% if g.user %}
-    <a class="action" href="{{ url_for('food.create') }}">New</a>
-  {% endif %}
+<h1>{% block title %}Your Food{% endblock %}</h1>
+
 {% endblock %}
 
 {% block content %}
-  {% for food in foods %}
-    <article class="food">
-      <header>
-        <div>
-          <h1>{{ food.name }}</h1>
-          <div class="about">Added on {{ food.created.strftime('%m/%d/%Y') }}</div>
-        </div>
-        {% if g.user.id == food.creator_id %}
-          <a class="action" href="{{ url_for('food.update', id=food.id) }}">Edit</a>
-        {% endif %}
-      </header>
-      <p class="expiration">Expires on: {{ food.expiration_date.strftime('%m/%d/%Y') }}</p>
-    </article>
-    {% if not loop.last %}
-      <hr>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Food Name</th>
+      <th>Expiration Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for food in foods %}
+    {% if g.user.id == food.creator_id %}
+    <tr>
+      <td>{{ food.name }}</td>
+      <td>{{ food.expiration_date.strftime('%m/%d/%y') }}</td>
+      <td>
+        <a href="{{ url_for('food.update', id=food.id) }}" class="btn btn-warning a-btn-slide-text">
+          <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+          <span><strong>Edit</strong></span>
+        </a>
+      </td>
+    </tr>
     {% endif %}
-  {% endfor %}
+    {% endfor %}
+  </tbody>
+</table>
+
+{% if g.user %}
+<a href="{{ url_for('food.create') }}" class="btn btn-success a-btn-slide-text">
+  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+  <span><strong>Add Food</strong></span>            
+</a>
+{% endif %}
 {% endblock %}
