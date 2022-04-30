@@ -11,6 +11,7 @@
     <tr>
       <th>Food Name</th>
       <th>Expiration Date</th>
+      <th>Alert</th>
     </tr>
   </thead>
   <tbody>
@@ -19,6 +20,7 @@
     <tr>
       <td>{{ food.name }}</td>
       <td>{{ food.expiration_date.strftime('%m/%d/%y') }}</td>
+      <td>{{ food.days_before }}</td>
       <td>
         <a href="{{ url_for('food.update', id=food.id) }}" class="btn btn-warning a-btn-slide-text">
           <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
