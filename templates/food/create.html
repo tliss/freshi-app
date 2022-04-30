@@ -9,6 +9,8 @@
     <input name="name" id="name" value="{{ request.form['name'] }}" required>
     <label for="exp">Expiration Date</label>
     <input type="date" name="exp" id="exp" value="{{ request.form['exp'] }}">
+    <label for="days">Alert Days Before Expiration</label>
+    <input type="number" id="days" name="days" min="1" max="31" step="1" value="1">
     <input class="btn btn-success" type="submit" value="Save">
 </form>
 {% endblock %}
