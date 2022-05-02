@@ -38,7 +38,7 @@ class Food(db.Model):
     expiration_date = db.Column(db.DateTime, nullable=False)
     days_before = db.Column(db.Integer)
 
-    def __init__(self, creator_id, created, name, expiration_date):
+    def __init__(self, creator_id, created, name, expiration_date,days_before):
         self.creator_id = creator_id
         self.created = created
         self.name = name
