@@ -12,13 +12,13 @@
     <input name="name" id="name"
       value="{{ food['name'] }}" required>
 
-    <label for="expiration_date">Expiration Date</label>
-    <input type="date" name="expiration_date" id="expiration_date" 
+    <label for="exp">Expiration Date</label>
+    <input type="date" name="exp" id="exp" 
       value="{{ request.form['expiration_date'] or food['expiration_date'].strftime('%Y-%m-%d') }}">
 
     <label for="days">Alert Days Before Expiration</label>
     <input type="number" id="days" name="days" min="1" max="31" step="1" 
-    value="{{ food['days_before'] }}">
+    value="{{ request.form['expiration_date'] or food['days_before'] }}">
     <input class="btn btn-success" type="submit" value="Save">
 
   </form>
