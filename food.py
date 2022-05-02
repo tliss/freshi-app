@@ -21,7 +21,7 @@ def index():
         return render_template('home.html')
 
 def get_food(id, check_creator=True):
-    food=Food.query.filter_by(creator_id=g.user.id).first()
+    food=Food.query.filter_by(id=id).first()
 
     if food is None:
         abort(404, f"Food id {id} doesn't exist.")
@@ -67,7 +67,11 @@ def update(id):
 
     if request.method == 'POST':
         name = request.form['name']
+<<<<<<< HEAD
         exp = request.form['expiration_date']
+=======
+        exp = request.form['exp']
+>>>>>>> sprint-05
         days = request.form['days']
         error = None
 
