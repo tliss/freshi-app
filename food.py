@@ -67,11 +67,7 @@ def update(id):
 
     if request.method == 'POST':
         name = request.form['name']
-<<<<<<< HEAD
-        exp = request.form['expiration_date']
-=======
         exp = request.form['exp']
->>>>>>> sprint-05
         days = request.form['days']
         error = None
 
