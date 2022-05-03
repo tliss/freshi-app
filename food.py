@@ -21,7 +21,7 @@ def index():
         return render_template('home.html')
 
 def get_food(id, check_creator=True):
-    food=Food.query.filter_by(creator_id=g.user.id).first()
+    food=Food.query.filter_by(id=id).first()
 
     if food is None:
         abort(404, f"Food id {id} doesn't exist.")
@@ -37,6 +37,7 @@ def create():
     if request.method == 'POST':
         name = request.form['name']
         exp = request.form['exp']
+        days = request.form['days']
         error = None
 
         if not name:
@@ -49,7 +50,8 @@ def create():
                 g.user.id,
                 None,
                 name,
-                exp
+                exp,
+                days
             )
             db.session.add(food)
             db.session.commit()
@@ -66,6 +68,7 @@ def update(id):
     if request.method == 'POST':
         name = request.form['name']
         exp = request.form['exp']
+        days = request.form['days']
         error = None
 
         if not name:
@@ -76,6 +79,7 @@ def update(id):
         else:
             food.name = name
             food.expiration_date = exp
+            food.days_before = days
             db.session.add(food)
             db.session.commit()
 

@@ -36,12 +36,14 @@ class Food(db.Model):
     created = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     name = db.Column(db.String(), nullable=False)
     expiration_date = db.Column(db.DateTime, nullable=False)
+    days_before = db.Column(db.Integer)
 
-    def __init__(self, creator_id, created, name, expiration_date):
+    def __init__(self, creator_id, created, name, expiration_date,days_before):
         self.creator_id = creator_id
         self.created = created
         self.name = name
         self.expiration_date = expiration_date
+        self.days_before = days_before
 
 
     # Return a printable value
@@ -54,5 +56,6 @@ class Food(db.Model):
             'creator_id': self.creator_id,
             'created': self.created,
             'name': self.name,
-            'expiration_date': self.expiration_date
+            'expiration_date': self.expiration_date,
+            'days_before': self.days_before
         }

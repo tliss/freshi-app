@@ -10,14 +10,15 @@ db = create_engine(db_string)
 
 #Function to check for notification need
 def notifier():
-    result_set = db.execute("SELECT name,creator_id,expiration_date,email FROM food,public.user where food.creator_id=public.user.id order by expiration_Date ASC")
+    result_set = db.execute("SELECT name,creator_id,expiration_date,days_before,email FROM food,public.user where food.creator_id=public.user.id order by expiration_Date ASC")
     today=datetime.today()
     print(today)  
     for result in result_set:  
         expiry_date=result[2]
-        email_info=str(result[3])
+        email_info=str(result[4])
         name=str(result[0])
-        deadline=expiry_date-timedelta(3) 
+        days_before=int(result[3])
+        deadline=expiry_date-timedelta(days_before) 
         print(deadline)
         if today >= deadline:
             print("Email will be sent")
