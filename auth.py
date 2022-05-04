@@ -5,6 +5,7 @@ from flask import (
 )
 from werkzeug.security import check_password_hash, generate_password_hash
 
+from sqlalchemy.exc import IntegrityError
 from models import db, User
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
@@ -33,7 +34,8 @@ def register():
                 )
                 db.session.add(user)
                 db.session.commit()
-            except db.IntegrityError:
+            except IntegrityError:
+                db.session.rollback()
                 error = f"User {username} is already registered."
             else:
                 return redirect(url_for("auth.login"))
