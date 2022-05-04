@@ -3,23 +3,26 @@ Make sure less secure apps on the sender's and receiver's email id is ON
 Link to that page- https://www.google.com/settings/security/lesssecureapps
 '''
 import smtplib
+import os
 
 def send_email(email_info,name,today,deadline):
     print(email_info,name)
+    db_user=os.environ.get('DB_USER')
+    db_pass=os.environ.get('DB_PASS')
     with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
     #with smtplib.SMTP('localhost', 1025) as smtp:
         smtp.ehlo()
         smtp.starttls()
         smtp.ehlo()
 
-        smtp.login("Enter your email id here", "Enter your password here")
+        smtp.login(db_user, db_pass)
 
         subject='Freshi Food Expiration Notification'
         body='Your food item ' +name+ ' is going to expire tommorow.' 
 
         msg=f'Subject:{subject}\n\n{body}'
 
-        smtp.sendmail("Enter your email id here",email_info,msg)
+        smtp.sendmail(db_user,email_info,msg)
 
 '''
 To check the working of email on your localhost terminal-- 
